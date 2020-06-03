@@ -1,0 +1,3 @@
+rootProject.name='DialogTool'
+include ':app'
+include ':dialogtool'
