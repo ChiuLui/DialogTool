@@ -42,17 +42,17 @@ public class DialogTool extends Dialog {
         LEFT_TOP, RIGHT_TOP, CENTER_TOP, CENTER, LEFT_BOTTOM, RIGHT_BOTTOM, CENTER_BOTTOM
     }
 
-    private Display display;
+    private Display mDisplay;
 
     /**
      * Dialog的Window
      */
-    private Window dialogWindow;
+    private Window mDialogWindow;
 
     /**
      * Dialog的布局数据
      */
-    private WindowManager.LayoutParams dialogLayoutParams;
+    private WindowManager.LayoutParams mDialogLayoutParams;
 
 
     public View getRootView() {
@@ -64,15 +64,15 @@ public class DialogTool extends Dialog {
      */
     private void setLayoutWidthHeight() {
         if (mHeight != -1) {
-            dialogLayoutParams.height = mHeight;
+            mDialogLayoutParams.height = mHeight;
         } else {
-            dialogLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            mDialogLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         }
 
         if (mWidth != -1) {
-            dialogLayoutParams.width = mWidth;
+            mDialogLayoutParams.width = mWidth;
         } else {
-            dialogLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+            mDialogLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         }
     }
 
@@ -81,10 +81,10 @@ public class DialogTool extends Dialog {
      */
     private void setLayoutXY() {
         if (mLayoutX != -1) {
-            dialogLayoutParams.x = mLayoutX;
+            mDialogLayoutParams.x = mLayoutX;
         }
         if (mLayoutY != -1) {
-            dialogLayoutParams.y = mLayoutY;
+            mDialogLayoutParams.y = mLayoutY;
         }
     }
 
@@ -94,25 +94,25 @@ public class DialogTool extends Dialog {
     private void setLayoutGravity() {
         switch (mGravity) {
             case LEFT_TOP:
-                dialogWindow.setGravity(Gravity.LEFT | Gravity.TOP);
+                mDialogWindow.setGravity(Gravity.LEFT | Gravity.TOP);
                 break;
             case RIGHT_TOP:
-                dialogWindow.setGravity(Gravity.RIGHT | Gravity.TOP);
+                mDialogWindow.setGravity(Gravity.RIGHT | Gravity.TOP);
                 break;
             case CENTER_TOP:
-                dialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
+                mDialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
                 break;
             case CENTER:
-                dialogWindow.setGravity(Gravity.CENTER);
+                mDialogWindow.setGravity(Gravity.CENTER);
                 break;
             case LEFT_BOTTOM:
-                dialogWindow.setGravity(Gravity.LEFT | Gravity.BOTTOM);
+                mDialogWindow.setGravity(Gravity.LEFT | Gravity.BOTTOM);
                 break;
             case RIGHT_BOTTOM:
-                dialogWindow.setGravity(Gravity.RIGHT | Gravity.BOTTOM);
+                mDialogWindow.setGravity(Gravity.RIGHT | Gravity.BOTTOM);
                 break;
             case CENTER_BOTTOM:
-                dialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+                mDialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
                 break;
             default:
                 break;
@@ -123,11 +123,11 @@ public class DialogTool extends Dialog {
      * 初始化dialog
      */
     private void initDialog() {
-        dialogWindow = getWindow();
-        dialogLayoutParams = dialogWindow.getAttributes();
+        mDialogWindow = getWindow();
+        mDialogLayoutParams = mDialogWindow.getAttributes();
         //设置背景透明度
         if (mAlpha != -1) {
-            dialogWindow.setDimAmount(mAlpha);
+            mDialogWindow.setDimAmount(mAlpha);
         }
         // 设置点击透明背景是否退出
         setCanceledOnTouchOutside(mIsClickOutSide);
@@ -137,9 +137,9 @@ public class DialogTool extends Dialog {
             //设置视图的最小显示宽度
             WindowManager windowManager = (WindowManager) getContext()
                     .getSystemService(Context.WINDOW_SERVICE);
-            display = windowManager.getDefaultDisplay();
+            mDisplay = windowManager.getDefaultDisplay();
             Point size = new Point();
-            display.getSize(size);
+            mDisplay.getSize(size);
             int width = size.x;
             mView.setMinimumWidth(width);
         }
@@ -170,7 +170,7 @@ public class DialogTool extends Dialog {
         //设置Window视图宽高
         setLayoutWidthHeight();
         //设置Window属性
-        dialogWindow.setAttributes(dialogLayoutParams);
+        mDialogWindow.setAttributes(mDialogLayoutParams);
         //设置Dialog视图
         setContentView(mView);
     }
