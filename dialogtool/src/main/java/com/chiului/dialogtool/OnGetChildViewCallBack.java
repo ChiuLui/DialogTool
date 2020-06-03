@@ -8,7 +8,7 @@ import android.view.View;
  * @author 神经大条蕾弟
  * @date 2020/06/03 17:48
  */
-public interface OnGetChildViewListener<T> {
+public interface OnGetChildViewCallBack<T> {
     /**
      * View的回调
      * @param view

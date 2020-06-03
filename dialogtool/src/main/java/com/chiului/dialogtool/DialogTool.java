@@ -54,7 +54,10 @@ public class DialogTool extends Dialog {
      */
     private WindowManager.LayoutParams mDialogLayoutParams;
 
-
+    /**
+     * 获取 Dialog 根布局
+     * @return
+     */
     public View getRootView() {
         return mView;
     }
@@ -254,7 +257,7 @@ public class DialogTool extends Dialog {
         }
 
         /**
-         * 设置dialog的绝对定位(如设置了gravity则不用设置)
+         * 设置 dialog 的相对于 setGravity() 定位的偏移
          *
          * @param layoutX X坐标 不设置传-1
          * @param layoutY Y坐标 不设置传-1
@@ -312,7 +315,7 @@ public class DialogTool extends Dialog {
         }
 
         /**
-         * 设置dialog的相对定位(如设置了layoutXY则不用设置)
+         * 设置 dialog 的相对定位如位于 Window 的上中下左右
          *
          * @param gravity
          * @return
@@ -366,9 +369,9 @@ public class DialogTool extends Dialog {
          * @param viewRes 控件ID
          * @return
          */
-        public Builder getChildView(int viewRes, OnGetChildViewListener<View> listener) {
+        public Builder getChildView(int viewRes, OnGetChildViewCallBack<View> callBack) {
             View childView = this.mBuilderView.findViewById(viewRes);
-            listener.onChildView(childView);
+            callBack.onChildView(childView);
             return this;
         }
 
@@ -378,9 +381,9 @@ public class DialogTool extends Dialog {
          * @param viewRes 控件ID
          * @return
          */
-        public Builder getChildTextView(int viewRes, OnGetChildViewListener<TextView> listener) {
+        public Builder getChildTextView(int viewRes, OnGetChildViewCallBack<TextView> callBack) {
             TextView tv = this.mBuilderView.findViewById(viewRes);
-            listener.onChildView(tv);
+            callBack.onChildView(tv);
             return this;
         }
 
@@ -390,9 +393,9 @@ public class DialogTool extends Dialog {
          * @param viewRes 控件ID
          * @return
          */
-        public Builder getChildImageView(int viewRes, OnGetChildViewListener<ImageView> listener) {
+        public Builder getChildImageView(int viewRes, OnGetChildViewCallBack<ImageView> callBack) {
             ImageView iv = this.mBuilderView.findViewById(viewRes);
-            listener.onChildView(iv);
+            callBack.onChildView(iv);
             return this;
         }
 
