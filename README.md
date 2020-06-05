@@ -60,11 +60,11 @@ implementation project(path: ':dialogtool')
 
 ### 最简单实现:
 
-- 最基本的使用:
+- 只需一行代码即可快速构建出 Dialog
 
 1. 新建一个`new DialogTool.Builder()`
 2. 调用`setView(R.layout.dialog_view)`传入一个你自己的布局
-3. 调用`build()`构建出`dialog`实例然后`show()`
+3. 调用`build()`即可快速构建出 dialog 实例
 
 
 ```
@@ -77,10 +77,13 @@ new DialogTool.Builder(this)
 ```
 
 
+| [构建一个居中显示、并给父布局设置点击事件的 Dialog 示例](#2.1) | [构建一个底下弹出、不响应外部点击、外部透明、响应按钮点击的 Dialog 示例](#2.2) | [构建一个外部透明度百分之30、获取内部某个子View、动态设置内部标题文本的 Dialog 示例](#2.3) |
+|:----:|:----:|:----:|
+| ![示例_0](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_0.gif) | ![示例_1](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_1.gif) | ![示例_2](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_2.gif) |
 
-### 构建一个居中显示、并给父布局设置点击事件的 Dialog 示例:
 
-![示例_0](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_0.gif)
+### <span id = "2.1">**构建一个居中显示、并给父布局设置点击事件的 Dialog 示例:**</span>
+
 
 ```
 private void initDialog0() {
@@ -99,9 +102,7 @@ private void initDialog0() {
 
 
 
-### 构建一个底下弹出、不响应外部点击、外部透明、响应按钮点击的 Dialog 示例:
-
-![示例_1](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_1.gif)
+### <span id = "2.2">**构建一个底下弹出、不响应外部点击、外部透明、响应按钮点击的 Dialog 示例:**</span>
 
 
 ```
@@ -138,9 +139,7 @@ private void initDialog1() {
 
 
 
-### 构建一个外部透明度百分之30、获取内部某个子View、动态设置内部标题文本的 Dialog 示例:
-
-![示例_2](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_2.gif)
+### <span id = "2.3">构建一个外部透明度百分之30、获取内部某个子View、动态设置内部标题文本的 Dialog 示例:**</span>
 
 
 ```
