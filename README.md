@@ -76,8 +76,10 @@ new DialogTool.Builder(this)
 
 ```
 
+### 实现示例:
 
-| [样式1](#2.1) | [样式2](#2.2) | [样式3](#2.3) |
+
+| [示例1](#2.1) | [示例2](#2.2) | [示例3](#2.3) |
 | :-: | :-: | :-: |
 | ![示例_0](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_0.gif) | ![示例_1](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_1.gif) | ![示例_2](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_2.gif) |
 
