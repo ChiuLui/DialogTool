@@ -32,13 +32,10 @@ allprojects {
 
 - 最新版本 
 
-[ ![Download](https://api.bintray.com/packages/chiului/DialogTool/dialogtool/images/download.svg?version=1.1.0) ](https://bintray.com/chiului/DialogTool/dialogtool/1.1.0/link)
-
-
-- 把👆的版本号替换👇代码的 `$version$`
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.1.0) ](https://bintray.com/chiului/Library/dialogtool/1.1.0/link)
 
 ```
-implementation 'com.chiului:dialogtool:$version$'
+implementation 'com.chiului.library:dialogtool:1.1.0'
 ```
 
 ### 使用方式二：Module 方式
