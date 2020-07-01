@@ -128,16 +128,16 @@ public class DialogTool extends Dialog {
     private void initDialog() {
         mDialogWindow = getWindow();
         mDialogLayoutParams = mDialogWindow.getAttributes();
-        //设置背景透明度
+        // 设置背景透明度
         if (mAlpha != -1) {
             mDialogWindow.setDimAmount(mAlpha);
         }
         // 设置点击透明背景是否退出
         setCanceledOnTouchOutside(mIsClickOutSide);
 
-        //如果没有设置偏移量，就要给View设置一个最小宽度。否则布局会变形。
+        // 如果没有设置偏移量，就要给View设置一个最小宽度。否则布局会变形。
         if (mLayoutX == -1) {
-            //设置视图的最小显示宽度
+            // 设置视图的最小显示宽度
             WindowManager windowManager = (WindowManager) getContext()
                     .getSystemService(Context.WINDOW_SERVICE);
             mDisplay = windowManager.getDefaultDisplay();
@@ -166,15 +166,15 @@ public class DialogTool extends Dialog {
     private void createDialog() {
 
         initDialog();
-        //设置Window相对定位
+        // 设置Window相对定位
         setLayoutGravity();
-        //设置Window偏移量（相对于相对定位的偏移量）
+        // 设置Window偏移量（相对于相对定位的偏移量）
         setLayoutXY();
-        //设置Window视图宽高
+        // 设置Window视图宽高
         setLayoutWidthHeight();
-        //设置Window属性
+        // 设置Window属性
         mDialogWindow.setAttributes(mDialogLayoutParams);
-        //设置Dialog视图
+        // 设置Dialog视图
         setContentView(mView);
     }
 
@@ -190,6 +190,10 @@ public class DialogTool extends Dialog {
         private DialogGravity mBuilderGravity;
         private float mBuilderAlpha;
 
+        /**
+         * 创建 Builder（不带 View）
+         * @param context 上下文
+         */
         public Builder(Context context) {
             this.mBuilderContext = context;
 
@@ -197,10 +201,29 @@ public class DialogTool extends Dialog {
         }
 
         /**
+         * 创建 Builder
+         * @param context 上下文
+         * @param resView Dialog 的布局 id
+         */
+        public Builder(Context context, int resView) {
+            this(context);
+            this.setView(resView);
+        }
+
+        /**
+         * 创建 Builder
+         * @param context 上下文
+         * @param resView Dialog 的布局 View
+         */
+        public Builder(Context context, View resView) {
+            this(context);
+            this.setView(resView);
+        }
+
+        /**
          * 获取默认值
          */
         private void getDefault() {
-
             mBuilderThemeResId = R.style.MyDialogStyle;
             mBuilderView = null;
             mIsClickOutSide = true;
@@ -240,8 +263,8 @@ public class DialogTool extends Dialog {
          *
          * @return
          */
-        public Builder setView(View view) {
-            this.mBuilderView = view;
+        public Builder setView(View resView) {
+            this.mBuilderView = resView;
             return this;
         }
 
