@@ -30,13 +30,22 @@ allprojects {
 
 ##### Step 2. 在主 module 的 build.gradle 中添加依赖：
 
-- 最新版本 
+- Android X 
 
-[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.1.0) ](https://bintray.com/chiului/Library/dialogtool/1.1.0/link)
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.2.0) ](https://bintray.com/chiului/Library/dialogtool/1.2.0/link)
 
 ```
-implementation 'com.chiului.library:dialogtool:1.1.0'
+implementation 'com.chiului.library:dialogtool:1.2.0'
 ```
+
+- Support
+
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.1.9) ](https://bintray.com/chiului/Library/dialogtool/1.1.9/link)
+
+```
+implementation 'com.chiului.library:dialogtool:1.1.9'
+```
+
 
 ### 使用方式二：Module 方式
 
@@ -187,7 +196,9 @@ private void initDialog2() {
 
 |方法|说明|默认值|
 |:-----|:-----|:----:|
-| new DialogTool.Builder() | 创建构建 Dialog 的对象 |  |
+| new DialogTool.Builder(Context context) | 创建构建 Dialog 的对象 |  |
+| new DialogTool.Builder(Context context, int resView) | 创建构建 Dialog 的对象（传入要显示的 Dialog 的布局 id） |  |
+| new DialogTool.Builder(Context context, View resView) | 创建构建 Dialog 的对象（传入要显示的 Dialog 的布局 View） |  |
 | Builder.build() | 构建 Dialog 对象完成 |  |
 | Builder.setStyle(int themeResId) | 设置自定义主题style | R.style.MyDialogStyle |
 | Builder.setView(int resView) | 设置Dialog 布局文件ID | null |
