@@ -224,7 +224,7 @@ public class DialogTool extends Dialog {
          * 获取默认值
          */
         private void getDefault() {
-            mBuilderThemeResId = R.style.MyDialogStyle;
+            mBuilderThemeResId = R.style.DialogToolStyle_Default;
             mBuilderView = null;
             mIsClickOutSide = true;
             mBuilderWidth = -1;

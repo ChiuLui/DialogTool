@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDialog1 = new DialogTool.Builder(this)
                 .setView(R.layout.dialog_select_item)//设置Dialog的布局View
                 .setGravity(DialogTool.DialogGravity.CENTER_BOTTOM)//设置Dialog靠下弹出
+                .setStyle(R.style.DialogToolStyle_Bottom)
                 .setAlpha(0)//设置弹框外为透明
                 .isClickOutSide(false)//设置不能点击外面
                 .setOnClick(R.id.tv_one, new View.OnClickListener() {

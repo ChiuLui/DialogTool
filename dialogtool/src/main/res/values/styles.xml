@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MyDialogStyle" parent="android:Theme.Dialog">
+
+    <style name="DialogToolStyle_Default" parent="android:Theme.Dialog">
         <!-- 边框 -->
         <item name="android:windowFrame">@null</item>
         <!-- 是否浮现在activity之上 -->
@@ -14,4 +15,43 @@
         <!-- 模糊 -->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    <style name="DialogToolStyle_Bottom" parent="DialogToolStyle_Default">
+        <item name="android:windowAnimationStyle">@style/DialogToolAnimation_Bottom</item>
+    </style>
+
+    <style name="DialogToolStyle_Top" parent="DialogToolStyle_Default">
+        <item name="android:windowAnimationStyle">@style/DialogToolAnimation_Top</item>
+    </style>
+
+    <style name="DialogToolStyle_Start" parent="DialogToolStyle_Default">
+        <item name="android:windowAnimationStyle">@style/DialogToolAnimation_Start</item>
+    </style>
+
+    <style name="DialogToolStyle_End" parent="DialogToolStyle_Default">
+        <item name="android:windowAnimationStyle">@style/DialogToolAnimation_End</item>
+    </style>
+
+    <style name="DialogToolAnimation_Bottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_bottom_out</item>
+    </style>
+
+    <style name="DialogToolAnimation_Top" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_top_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_top_out</item>
+    </style>
+
+    <style name="DialogToolAnimation_Start" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_start_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_start_out</item>
+    </style>
+
+    <style name="DialogToolAnimation_End" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_end_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_end_out</item>
+    </style>
+
+    <integer name="DialogToolAnimation_Duration">220</integer>
+
 </resources>
