@@ -32,18 +32,18 @@ allprojects {
 
 - Android X 
 
-[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.2.0) ](https://bintray.com/chiului/Library/dialogtool/1.2.0/link)
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.3.0) ](https://bintray.com/chiului/Library/dialogtool/1.3.0/link)
 
 ```
-implementation 'com.chiului.library:dialogtool:1.2.0'
+implementation 'com.chiului.library:dialogtool:1.3.0'
 ```
 
 - Support
 
-[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.1.9) ](https://bintray.com/chiului/Library/dialogtool/1.1.9/link)
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.2.9) ](https://bintray.com/chiului/Library/dialogtool/1.2.9/link)
 
 ```
-implementation 'com.chiului.library:dialogtool:1.1.9'
+implementation 'com.chiului.library:dialogtool:1.2.9'
 ```
 
 
@@ -72,25 +72,26 @@ implementation project(path: ':dialogtool')
 - 只需一行代码即可快速构建出 Dialog
 
 1. 新建一个`new DialogTool.Builder()`
-2. 调用`setView(R.layout.dialog_view)`传入一个你自己的布局
+2. 在构造方法传入自己的布局或调用`setView()`传入一个你自己的布局
 3. 调用`build()`即可快速构建出 dialog 实例
 
 
 ```
 
-new DialogTool.Builder(this)
-                .setView(R.layout.dialog_view)//传入你自己的自定义布局
-                .build().show();
-
+new DialogTool.Builder(this, R.layout.dialog_view).build().show();
 
 ```
 
 ### 实现示例:
 
 
-| [示例1](#2.1) | [示例2](#2.2) | [示例3](#2.3) |
-| :-: | :-: | :-: |
-| ![示例_0](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_0.gif) | ![示例_1](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_1.gif) | ![示例_2](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_2.gif) |
+| [示例1](#2.1) | [示例2](#2.2) |
+| :-: | :-: |
+| ![示例_0](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_0.gif) | ![示例_1](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_1.gif) |
+
+| [示例3](#2.3) | [示例4](#2.4) |
+| :-: | :-: |
+| ![示例_2](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_2.gif) | ![示例_2](https://github.com/ChiuLui/DialogTool/blob/master/image/dialog_3.gif) |
 
 
 ### <span id = "2.1">**构建一个居中显示、并给父布局设置点击事件的 Dialog 示例:**</span>
@@ -121,6 +122,7 @@ private void initDialog1() {
         mDialog1 = new DialogTool.Builder(this)
                 .setView(R.layout.dialog_select_item)//设置Dialog的布局View
                 .setGravity(DialogTool.DialogGravity.CENTER_BOTTOM)//设置Dialog靠下弹出
+                .setStyle(R.style.DialogToolStyle_Bottom)
                 .setAlpha(0)//设置弹框外为透明
                 .isClickOutSide(false)//设置不能点击外面
                 .setOnClick(R.id.tv_one, new View.OnClickListener() {
@@ -150,7 +152,7 @@ private void initDialog1() {
 
 
 
-### <span id = "2.3">构建一个外部透明度百分之30、获取内部某个子View、动态设置内部标题文本的 Dialog 示例:**</span>
+### <span id = "2.3">**构建一个外部透明度百分之30、获取内部某个子View、动态设置内部标题文本的 Dialog 示例:**</span>
 
 
 ```
@@ -189,6 +191,29 @@ private void initDialog2() {
 ```
 
 
+### <span id = "2.4">**设置不同的出入场动画 Dialog 示例:**</span>
+
+
+```
+private void initStyleDialog() {
+    mDialog3 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+            .setStyle(R.style.DialogToolStyle_Top)//设置上弹出效果
+            .setGravity(DialogTool.DialogGravity.CENTER_TOP)//设置定位
+            .build();
+    mDialog4 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+            .setStyle(R.style.DialogToolStyle_Bottom)//设置下弹出效果
+            .setGravity(DialogTool.DialogGravity.CENTER_BOTTOM)//设置定位
+            .build();
+    mDialog5 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+            .setStyle(R.style.DialogToolStyle_Start)//设置左弹出效果
+            .build();
+    mDialog6 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+            .setStyle(R.style.DialogToolStyle_End)//设置右弹出效果
+            .build();
+}
+```
+
+
 
 # <span id = "3">**3.API**</span>
 
@@ -200,7 +225,7 @@ private void initDialog2() {
 | new DialogTool.Builder(Context context, int resView) | 创建构建 Dialog 的对象（传入要显示的 Dialog 的布局 id） |  |
 | new DialogTool.Builder(Context context, View resView) | 创建构建 Dialog 的对象（传入要显示的 Dialog 的布局 View） |  |
 | Builder.build() | 构建 Dialog 对象完成 |  |
-| Builder.setStyle(int themeResId) | 设置自定义主题style | R.style.MyDialogStyle |
+| Builder.setStyle(int themeResId) | 设置自定义主题style（可以通过自定义 Style 调整 Dialog 的样式与出入场动画等）内置出入场效果：（上）DialogToolStyle_Top、（下）DialogToolStyle_Bottom、（左）DialogToolStyle_Start、（右）DialogToolStyle_End、（系统默认弹出效果）DialogToolStyle_Default | DialogToolStyle_Default |
 | Builder.setView(int resView) | 设置Dialog 布局文件ID | null |
 | Builder.setView(View view) | 设置 Dialog 布局 View | null |
 | Builder.isClickOutSide(boolean isClickOutSide) | 设置是否允许点击dialog外部关闭Dialog | true |
