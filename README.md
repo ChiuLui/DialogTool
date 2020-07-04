@@ -242,7 +242,3 @@ private void initStyleDialog() {
 | Builder.getChildTextView(int viewRes, OnGetChildViewCallBack<TextView> callBack) | 获取Dialog布局里的TextView |  |
 | Builder.getChildImageView(int viewRes, OnGetChildViewCallBack<ImageView> callBack) | 获取Dialog布局里的ImageView |  |
 | DialogTool.getRootView() | 获取 Dialog 根布局 View |  |
-
-
-
-
