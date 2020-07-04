@@ -13,27 +13,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnShowDialog_0;
     private Button btnShowDialog_1;
     private Button btnShowDialog_2;
+    private Button btnShowDialog_3;
+    private Button btnShowDialog_4;
+    private Button btnShowDialog_5;
+    private Button btnShowDialog_6;
     private DialogTool mDialog0;
     private DialogTool mDialog1;
     private DialogTool mDialog2;
+    private DialogTool mDialog3;
+    private DialogTool mDialog4;
+    private DialogTool mDialog5;
+    private DialogTool mDialog6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnShowDialog_0 = findViewById(R.id.button);
-        btnShowDialog_1 = findViewById(R.id.button2);
-        btnShowDialog_2 = findViewById(R.id.button3);
+        btnShowDialog_0 = findViewById(R.id.button0);
+        btnShowDialog_1 = findViewById(R.id.button1);
+        btnShowDialog_2 = findViewById(R.id.button2);
+        btnShowDialog_3 = findViewById(R.id.button3);
+        btnShowDialog_4 = findViewById(R.id.button4);
+        btnShowDialog_5 = findViewById(R.id.button5);
+        btnShowDialog_6 = findViewById(R.id.button6);
 
         btnShowDialog_0.setOnClickListener(this);
         btnShowDialog_1.setOnClickListener(this);
         btnShowDialog_2.setOnClickListener(this);
+        btnShowDialog_3.setOnClickListener(this);
+        btnShowDialog_4.setOnClickListener(this);
+        btnShowDialog_5.setOnClickListener(this);
+        btnShowDialog_6.setOnClickListener(this);
 
         initDialog0();
         initDialog1();
         initDialog2();
-
+        initStyleDialog();
     }
 
     private void initDialog0() {
@@ -113,17 +129,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
     }
 
+    private void initStyleDialog() {
+        mDialog3 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+                .setStyle(R.style.DialogToolStyle_Top)//设置上弹出效果
+                .setGravity(DialogTool.DialogGravity.CENTER_TOP)//设置定位
+                .build();
+
+        mDialog4 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+                .setStyle(R.style.DialogToolStyle_Bottom)//设置下弹出效果
+                .setGravity(DialogTool.DialogGravity.CENTER_BOTTOM)//设置定位
+                .build();
+
+        mDialog5 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+                .setStyle(R.style.DialogToolStyle_Start)//设置左弹出效果
+                .build();
+
+        mDialog6 = new DialogTool.Builder(this, R.layout.dialog_select_item)
+                .setStyle(R.style.DialogToolStyle_End)//设置右弹出效果
+                .build();
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button:
+            case R.id.button0:
                 mDialog0.show();
                 break;
-            case R.id.button2:
+            case R.id.button1:
                 mDialog1.show();
                 break;
-            case R.id.button3:
+            case R.id.button2:
                 mDialog2.show();
+                break;
+            case R.id.button3:
+                mDialog3.show();
+                break;
+            case R.id.button4:
+                mDialog4.show();
+                break;
+            case R.id.button5:
+                mDialog5.show();
+                break;
+            case R.id.button6:
+                mDialog6.show();
                 break;
             default:
         }
