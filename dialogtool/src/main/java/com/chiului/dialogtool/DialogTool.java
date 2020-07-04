@@ -103,10 +103,10 @@ public class DialogTool extends Dialog {
                 mDialogWindow.setGravity(Gravity.RIGHT | Gravity.TOP);
                 break;
             case CENTER_TOP:
-                mDialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
+                mDialogWindow.setGravity(Gravity.LEFT | Gravity.TOP);
                 break;
             case CENTER:
-                mDialogWindow.setGravity(Gravity.CENTER);
+                mDialogWindow.setGravity(Gravity.LEFT | Gravity.CENTER);
                 break;
             case LEFT_BOTTOM:
                 mDialogWindow.setGravity(Gravity.LEFT | Gravity.BOTTOM);
@@ -115,7 +115,7 @@ public class DialogTool extends Dialog {
                 mDialogWindow.setGravity(Gravity.RIGHT | Gravity.BOTTOM);
                 break;
             case CENTER_BOTTOM:
-                mDialogWindow.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+                mDialogWindow.setGravity(Gravity.LEFT | Gravity.BOTTOM);
                 break;
             default:
                 break;
