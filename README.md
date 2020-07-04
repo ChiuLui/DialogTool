@@ -32,18 +32,18 @@ allprojects {
 
 - Android X 
 
-[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.3.0) ](https://bintray.com/chiului/Library/dialogtool/1.3.0/link)
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.4.0) ](https://bintray.com/chiului/Library/dialogtool/1.4.0/link)
 
 ```
-implementation 'com.chiului.library:dialogtool:1.3.0'
+implementation 'com.chiului.library:dialogtool:1.4.0'
 ```
 
 - Support
 
-[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.2.9) ](https://bintray.com/chiului/Library/dialogtool/1.2.9/link)
+[ ![Download](null/packages/chiului/Library/dialogtool/images/download.svg?version=1.3.9) ](https://bintray.com/chiului/Library/dialogtool/1.3.9/link)
 
 ```
-implementation 'com.chiului.library:dialogtool:1.2.9'
+implementation 'com.chiului.library:dialogtool:1.3.9'
 ```
 
 
