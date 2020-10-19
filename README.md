@@ -32,13 +32,13 @@ allprojects {
 
 - Android X 
 
-[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg?version=1.4.0) ](https://bintray.com/chiului/Library/dialogtool/1.4.0/link)
+[ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg) ](https://bintray.com/chiului/Library/dialogtool/_latestVersion)
 
 ```
-implementation 'com.chiului.library:dialogtool:1.4.0'
+implementation 'com.chiului.library:dialogtool:1.5.0'
 ```
 
-- Support
+- Support(停止维护，推荐使用 Android X 版本。👆)
 
 [ ![Download](null/packages/chiului/Library/dialogtool/images/download.svg?version=1.3.9) ](https://bintray.com/chiului/Library/dialogtool/1.3.9/link)
 
@@ -226,9 +226,11 @@ private void initStyleDialog() {
 | new DialogTool.Builder(Context context, View resView) | 创建构建 Dialog 的对象（传入要显示的 Dialog 的布局 View） |  |
 | Builder.build() | 构建 Dialog 对象完成 |  |
 | Builder.setStyle(int themeResId) | 设置自定义主题style（可以通过自定义 Style 调整 Dialog 的样式与出入场动画等）内置出入场效果：（上）DialogToolStyle_Top、（下）DialogToolStyle_Bottom、（左）DialogToolStyle_Start、（右）DialogToolStyle_End、（系统默认弹出效果）DialogToolStyle_Default | DialogToolStyle_Default |
-| Builder.setView(int resView) | 设置Dialog 布局文件ID | null |
-| Builder.setView(View view) | 设置 Dialog 布局 View | null |
-| Builder.isClickOutSide(boolean isClickOutSide) | 设置是否允许点击dialog外部关闭Dialog | true |
+| Builder.setView(int resView) | 设置Dialog 布局文件ID (通过此方法添加 Dialog 布局，会将传入的布局添加到默认的父布局 `dialog_tool_parent.xml` )| null |
+| Builder.setView(View view) | 设置 Dialog 布局 View (通过此方法添加 Dialog 布局，将直接设置为该 Dialog 的父布局，不会添加到默认的父布局 `dialog_tool_parent.xml` ， 所以直接在最外层布局设置 `android:layout_margin` 外边距等属性将会无效。) | null |
+| Builder.isClickOutSide(boolean isClickOutSide) | 设置是否允许点击 Dialog 外部屏幕关闭 Dialog | true |
+| Builder.isCancelable(boolean isCancelable) | 设置是否允许通过点击屏幕或物理返回键关闭 Dialog | true |
+| Builder.isFullScreen(boolean isFullScreen) | 设置是否全屏显示 Dialog | false |
 | Builder.setLayoutXY(int layoutX, int layoutY) | 设置 dialog 的相对于 `setGravity()` 定位的偏移 | -1（不偏移） |
 | Builder.setGravity(DialogGravity gravity) | 设置 dialog 的相对定位如位于 Window 的上中下左右 | DialogGravity.CENTER（使用系统默认为中间） |
 | Builder.setWidthAndHeight(int width, int height) | 设置 Dialog 的宽高 | -1（使用布局的宽高） |
