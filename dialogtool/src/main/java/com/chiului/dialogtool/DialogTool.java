@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -26,6 +27,8 @@ public class DialogTool extends Dialog {
     private Context mContext;
     private View mView;
     private boolean mIsClickOutSide;
+    private boolean mIsCancelable;
+    private boolean mIsFullScreen;
     private int mWidth;
     private int mHeight;
     private int mLayoutX;
@@ -132,8 +135,10 @@ public class DialogTool extends Dialog {
         if (mAlpha != -1) {
             mDialogWindow.setDimAmount(mAlpha);
         }
-        // 设置点击透明背景是否退出
+        // 设置是否允许点击 Dialog 外部屏幕关闭 Dialog
         setCanceledOnTouchOutside(mIsClickOutSide);
+        // 设置是否屏蔽通过点击屏幕或物理返回键关闭 Dialog
+        setCancelable(mIsCancelable);
 
         // 如果没有设置偏移量，就要给View设置一个最小宽度。否则布局会变形。
         if (mLayoutX == -1) {
@@ -153,6 +158,8 @@ public class DialogTool extends Dialog {
         mContext = builder.mBuilderContext;
         mView = builder.mBuilderView;
         mIsClickOutSide = builder.mIsClickOutSide;
+        mIsCancelable = builder.mIsCancelable;
+        mIsFullScreen = builder.mIsFullScreen;
         mWidth = builder.mBuilderWidth;
         mHeight = builder.mBuilderHeight;
         mLayoutX = builder.mBuilderLayoutX;
@@ -176,6 +183,18 @@ public class DialogTool extends Dialog {
         mDialogWindow.setAttributes(mDialogLayoutParams);
         // 设置Dialog视图
         setContentView(mView);
+        // 设置是否全屏
+        setFullScreen();
+    }
+
+    /**
+     * 设置是否全屏
+     */
+    private void setFullScreen() {
+        if (mIsFullScreen) {
+            //一定要在setContentView之后调用，否则无效
+            getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        }
     }
 
     public static final class Builder {
@@ -183,6 +202,8 @@ public class DialogTool extends Dialog {
         private int mBuilderThemeResId;
         private View mBuilderView;
         private boolean mIsClickOutSide;
+        private boolean mIsCancelable;
+        private boolean mIsFullScreen;
         private int mBuilderWidth;
         private int mBuilderHeight;
         private int mBuilderLayoutX;
@@ -227,6 +248,8 @@ public class DialogTool extends Dialog {
             mBuilderThemeResId = R.style.DialogToolStyle_Default;
             mBuilderView = null;
             mIsClickOutSide = true;
+            mIsCancelable = true;
+            mIsFullScreen = false;
             mBuilderWidth = -1;
             mBuilderHeight = -1;
             mBuilderLayoutX = -1;
@@ -269,13 +292,35 @@ public class DialogTool extends Dialog {
         }
 
         /**
-         * 设置是否允许点击dialog外部关闭Dialog
+         * 设置是否允许点击 Dialog 外部屏幕关闭 Dialog
          *
-         * @param isClickOutSide
+         * @param isClickOutSide true: 允许 false: 不允许 （默认 true）
          * @return
          */
         public Builder isClickOutSide(boolean isClickOutSide) {
             this.mIsClickOutSide = isClickOutSide;
+            return this;
+        }
+
+        /**
+         * 设置是否允许通过点击屏幕或物理返回键关闭 Dialog
+         *
+         * @param isCancelable true: 允许 false: 不允许 （默认 true）
+         * @return
+         */
+        public Builder isCancelable(boolean isCancelable) {
+            this.mIsCancelable = isCancelable;
+            return this;
+        }
+
+        /**
+         * 设置是否全屏显示 Dialog
+         *
+         * @param isFullScreen true: 全屏 false: 不全屏 (默认为 false)
+         * @return
+         */
+        public Builder isFullScreen(boolean isFullScreen) {
+            this.mIsFullScreen = isFullScreen;
             return this;
         }
 
