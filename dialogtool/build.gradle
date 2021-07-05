@@ -1,12 +1,4 @@
 apply plugin: 'com.android.library'
-// 发布 bintray 版本需要打开以下注释
-//apply from: 'bintray.gradle'
-// 输入指令
-//gradlew在模块中是找不到命令的，因此你需要调用上一级(根目录)的gradlew
-//..\gradlew generateRelease
-//当然也可以直接在根目录运行构建命令的，啊哈哈
-//gradlew generateRelease
-
 
 android {
     compileSdkVersion 29

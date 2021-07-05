@@ -15,9 +15,37 @@ DialogTool
 # <span id = "1">**1.使用方式**</span>
 
 
-### 使用方式一：Maven方式：
+### 使用方式一：Maven 方式：
+
+两种远程仓库选一种即可，推荐使用 JitPack 远程仓库，JCent 远程仓库在2022 年 2 月 1 日之后不能下载任何库。
+
+### 使用 JitPack 远程仓库（推荐）
 
 ##### Step 1. 在 project 层级的 build.gradle 中，添加仓库地址:
+
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+
+##### Step 2. 在主 module 的 build.gradle 中添加依赖：
+
+- Android X 
+
+[![](https://jitpack.io/v/ChiuLui/DialogTool.svg)](https://jitpack.io/#ChiuLui/DialogTool)
+
+
+```
+implementation 'com.github.ChiuLui:DialogTool:1.5.0'
+```
+
+### JCent 远程仓库（不推荐）：
 
 ```
 allprojects {
@@ -28,11 +56,10 @@ allprojects {
 }
 ```
 
-##### Step 2. 在主 module 的 build.gradle 中添加依赖：
-
 - Android X 
 
 [ ![Download](https://api.bintray.com/packages/chiului/Library/dialogtool/images/download.svg) ](https://bintray.com/chiului/Library/dialogtool/_latestVersion)
+
 
 ```
 implementation 'com.chiului.library:dialogtool:1.5.0'
