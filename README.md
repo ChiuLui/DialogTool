@@ -17,7 +17,7 @@ DialogTool
 
 ### 使用方式一：Maven 方式：
 
-两种远程仓库选一种即可，推荐使用 JitPack 远程仓库，JCent 远程仓库在2022 年 2 月 1 日之后不能下载任何库。
+两种远程仓库选一种即可，推荐使用 JitPack 远程仓库，JCenter 远程仓库在2022 年 2 月 1 日之后不能下载任何库。
 
 ### 使用 JitPack 远程仓库（推荐）
 
@@ -45,7 +45,7 @@ allprojects {
 implementation 'com.github.ChiuLui:DialogTool:1.5.0'
 ```
 
-### JCent 远程仓库（不推荐）：
+### JCenter 远程仓库（不推荐）：
 
 ```
 allprojects {
